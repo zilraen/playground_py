@@ -29,9 +29,9 @@ pagesStartsFromEven = 0
 stopOnFirstMatch = False
 solutions = []
 
-print "Needed pages sum is", neededSum, ", page numbers starts from", ("even." if pagesStartsFromEven else "odd.")
-print "Approximate results:"
-for N in range(1, neededSum / 2):
+print("Needed pages sum is", neededSum, ", page numbers starts from", ("even." if pagesStartsFromEven else "odd."))
+print( "Approximate results:")
+for N in range(1, int(neededSum / 2)):
     x = int(float(neededSum - N*N) / (2*N))
     if (x % 2 == pagesStartsFromEven):
         x = x - 1
@@ -43,18 +43,18 @@ for N in range(1, neededSum / 2):
             pages.append(i)
             sum += i
         if abs(sum - neededSum) < accuracy:
-            print N, "pages, starting from", x, ":"
-            print "    ", pages, " = ", sum, ("        <== EXACT MATCH!" if sum == neededSum else "")
+            print(N, "pages, starting from", x, ":")
+            print("    ", pages, " = ", sum, ("        <== EXACT MATCH!" if sum == neededSum else ""))
 
             if sum == neededSum:
                 solutions.append(pages)
                 if stopOnFirstMatch:
                     break
 
-print "__________________"
+print("__________________")
 if len(solutions) == 1:
-    print "Solution is:", solutions[0]
+    print("Solution is:", solutions[0])
 elif len(solutions) > 1:
-    print "Solutions are:", solutions
+    print("Solutions are:", solutions)
 else:
-    print "NO SOLUTION FOUND"
+    print("NO SOLUTION FOUND")
